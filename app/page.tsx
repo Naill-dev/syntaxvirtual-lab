@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Code, Wrench, Cpu, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
+import { LabButton } from "@/components/shared/LabButton";
 
 export const metadata: Metadata = {
   title: "Ana Səhifə",
@@ -13,21 +14,21 @@ const features = [
     icon: <Code className="h-8 w-8 text-indigo-400" />,
     title: "Playground",
     description: "JavaScript, Python, SQL, HTML/CSS dilləri üçün canlı kod redaktoru. Anında icra, konsol çıxışı, xəta göstərimi.",
-    href: "/playground",
+    href: "/lab/playground",
     gradient: "from-indigo-500 to-blue-500",
   },
   {
     icon: <Wrench className="h-8 w-8 text-purple-400" />,
     title: "Tools",
     description: "Regex Generator, SQL Builder, API Mock, Boilerplate Generator kimi vizual alətlər.",
-    href: "/tools",
+    href: "/lab/tools",
     gradient: "from-purple-500 to-pink-500",
   },
   {
     icon: <Cpu className="h-8 w-8 text-pink-400" />,
     title: "Simulators",
     description: "Alqoritm animasiyaları, data strukturu vizualizasiyası, şəbəkə və bulud arxitektura simulyatorları.",
-    href: "/simulators",
+    href: "/lab/simulators",
     gradient: "from-pink-500 to-rose-500",
   },
 ];
@@ -36,20 +37,18 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 space-y-16">
       {/* Hero */}
-      <section className="text-center space-y-6">
+      <section className="text-center space-y-6 flex flex-col items-center">
         <h1 className="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
           SyntaxVirtual Lab
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Brauzerdə tam funksional kod redaktoru, vizual generatorlar və interaktiv simulyatorlarla proqramçıların yaratma gücünü artırın.
         </p>
-        <Link
-          href="/playground"
-          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-3 font-semibold text-white shadow-glow transition hover:scale-105 hover:shadow-glow-secondary"
-        >
-          Playground-a başla
-          <ArrowRight className="h-4 w-4" />
-        </Link>
+        
+        {/* Yenilənmiş Lab Button */}
+        <div className="mt-4">
+          <LabButton size="lg" label="Lab mühitinə keçid" />
+        </div>
       </section>
 
       {/* Feature cards */}
@@ -75,4 +74,4 @@ export default function HomePage() {
   );
 }
 
-// ✅ Verified: Hero + 3 feature cards, gradient text, hover animations, server component
+// ✅ Verified: Links updated to /lab/*, added LabButton, updated text encoding

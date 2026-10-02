@@ -8,6 +8,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { cn } from "@/lib/utils";
+import { LabButton } from "@/components/shared/LabButton";
 
 /** Navigation item definition */
 interface NavItem {
@@ -72,7 +73,8 @@ export function Navbar() {
         </nav>
 
         {/* Right controls */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
+          <LabButton size="sm" />
           <ThemeToggle />
 
           {/* Mobile hamburger */}
