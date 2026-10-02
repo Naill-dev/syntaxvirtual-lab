@@ -1,11 +1,11 @@
 import type { Config } from "tailwindcss"
-import { fontFamily } from "tailwindcss/defaultTheme"
 
 const config = {
   darkMode: ["class"],
   content: [
-    './app/**/*.{ts,tsx}',
+    './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
   prefix: "",
@@ -18,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+        mono: ["var(--font-mono)"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -52,15 +56,23 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-      },
-      fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        mono: ["var(--font-mono)", ...fontFamily.mono],
+        sidebar: {
+          DEFAULT: 'hsl(var(--sidebar-background))',
+          foreground: 'hsl(var(--sidebar-foreground))',
+          primary: 'hsl(var(--sidebar-primary))',
+          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+          accent: 'hsl(var(--sidebar-accent))',
+          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+          border: 'hsl(var(--sidebar-border))',
+          ring: 'hsl(var(--sidebar-ring))'
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "1rem",
+        "2xl": "1.5rem",
       },
       keyframes: {
         "accordion-down": {
@@ -71,11 +83,20 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "glow": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "glow": "glow 2s ease-in-out infinite",
       },
+      boxShadow: {
+        'glow': '0 0 20px -5px rgba(99, 102, 241, 0.5)', // indigo
+        'glow-secondary': '0 0 20px -5px rgba(168, 85, 247, 0.5)', // purple
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
