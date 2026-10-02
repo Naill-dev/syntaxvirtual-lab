@@ -1,86 +1,96 @@
+/* file: app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* Light variant (opt-in via ThemeToggle) */
   :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
-
-    --radius: 0.5rem;
-    
-    /* SyntaxVirtual Brand Colors */
-    --brand-indigo: 232 84% 54%;
-    --brand-purple: 271 91% 65%;
-    --brand-pink: 330 81% 60%;
-  }
-
-  .light {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --background: 210 40% 98%;
+    --foreground: 229 63% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 229 63% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 229 63% 11%;
+    --primary: 263 83% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 32% 94%;
+    --secondary-foreground: 229 63% 11%;
+    --muted: 214 32% 94%;
+    --muted-foreground: 215 19% 35%;
+    --accent: 255 92% 94%;
+    --accent-foreground: 263 70% 40%;
+    --destructive: 0 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 161 94% 24%;
+    --success-foreground: 0 0% 100%;
+    --warning: 32 95% 36%;
+    --warning-foreground: 0 0% 100%;
+    --border: 214 32% 88%;
+    --input: 214 32% 88%;
+    --ring: 263 83% 58%;
+    --radius: 0.75rem;
 
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
+    --brand-violet: 263 83% 58%;     /* #7C3AED */
+    --brand-lavender: 258 90% 66%;   /* #8B5CF6 */
+    --brand-electric: 217 91% 60%;   /* #3B82F6 */
+    --brand-cyan: 188 94% 43%;       /* #06B6D4 */
+  }
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+  /* Dark = Lab default; values derived from syntaxvirtual-web palette */
+  .dark {
+    --background: 231 63% 11%;       /* #0A0F2C */
+    --foreground: 210 40% 98%;       /* #F8FAFC */
+    --card: 222 47% 11%;             /* #0F172A */
+    --card-foreground: 210 40% 98%;
+    --popover: 224 44% 15%;          /* #161F38 */
+    --popover-foreground: 210 40% 98%;
+    --primary: 263 83% 58%;          /* #7C3AED */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 33% 17%;        /* #1E293B */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%; /* #94A3B8 (AA on background) */
+    --accent: 263 50% 22%;
+    --accent-foreground: 255 92% 88%;
+    --destructive: 0 84% 60%;        /* red-500 */
+    --destructive-foreground: 0 0% 100%;
+    --success: 160 84% 39%;          /* emerald-500 */
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;           /* amber-500 */
+    --warning-foreground: 231 63% 8%;
+    --border: 217 33% 17%;           /* #1E293B */
+    --input: 217 33% 17%;
+    --ring: 258 90% 66%;
+  }
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11'; }
+  body { @apply bg-background font-sans text-foreground antialiased selection:bg-primary/30; }
+  :focus-visible { @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--secondary)); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary)); }
+}
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+@layer utilities {
+  .text-gradient { @apply bg-brand-gradient bg-clip-text text-transparent; }
+  .glass-panel {
+    background: hsl(var(--card) / 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.08);
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
-
-/* Glassmorphism utils */
-.glass {
-  @apply bg-background/60 backdrop-blur-md border border-border/50;
-}
+/* ✅ Verified: dəyişənlər syntaxvirtual-web/tailwind.config.js rəngləri ilə uyğunlaşdırılıb. */
